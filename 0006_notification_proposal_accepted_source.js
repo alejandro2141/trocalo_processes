@@ -91,7 +91,7 @@ let emails = await users.map(val => val.email)
 
   }// end if eamil_list 
   else {
-  console.log (cdate.toLocaleString()+":S0005:INFO: 0 EXIT ")
+  console.log (cdate.toLocaleString()+":S0006:INFO: 0 EXIT ")
   process.exit()
   }
 
