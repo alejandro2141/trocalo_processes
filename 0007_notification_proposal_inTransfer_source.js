@@ -182,7 +182,7 @@ async function sendmail(data)
             },
           },
           (info) => {
-            console.log(cdate.toLocaleString()+":S0005:INFO:"+info);
+            console.log(cdate.toLocaleString()+":S0007:INFO:"+info);
           }
         );
        
