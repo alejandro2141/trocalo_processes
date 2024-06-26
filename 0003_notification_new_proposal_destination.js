@@ -207,7 +207,7 @@ async function buildHtmlMessage(html, proposal, user_creator, user_destination){
   let creator_user_name = user_creator[0].names+" "+user_creator[0].last_name1  
   let destination_user_name = user_destination[0].names+" "+user_destination[0].last_name1  
   
-  let aux = await html.replace(/\[FRONT_HOST\]/g,FRONT_HOST).replace(/\[PROPOSAL_TITLE\]/g,proposal_title).replace(/\[USER_CREATOR\]/g, creator_user_name ).replace(/\[USER_DESTINATION\]/g, destination_user_name )
+  let aux = await html.replace(/\[FRONT_HOST\]/g,FRONT_HOST).replace(/\[PROPOSAL_TITLE\]/g,proposal_title).replace(/\[USER_CREATOR\]/g, creator_user_name ).replace(/\[USER_DESTINATION\]/g, destination_user_name ).replace(/\[USER_CREATOR\]/g, creator_user_name )
   //let aux = await html.replace(/\[FRONT_HOST\]/g,FRONT_HOST)
   return aux
 }
