@@ -1,3 +1,9 @@
+
+# REQUIRE POSTFIX
+sudo apt-get install postfix 
+Config internet Site
+
+
 # trocalo_processes
 
 1.- nodemailer require configuration
@@ -8,6 +14,7 @@
 aws_access_key_id = ZX6HYCD6WJ....
 aws_secret_access_key = 6P/yLDoQuVy....
  
+
 # CRON PROCESSES REQUIRED FOR BACKEND
 
 
