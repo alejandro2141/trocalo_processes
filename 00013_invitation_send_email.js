@@ -136,7 +136,7 @@ async function sendmail(data)
         transporter.sendMail(
           {            
             //from: "Registro_Horapo_"+Math.floor(Math.random()* (1000 - 1) + 1)+"@horapo.com",
-            from: "Horapo_Registro@horapo.com",
+            from: "noreply@reusar.cl",
             to: data.email.toLowerCase()  ,
             subject: 'Un amigo te Invita a REUSAR.CL',
             html: data.message ,
