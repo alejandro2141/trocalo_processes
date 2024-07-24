@@ -168,7 +168,7 @@ async function sendmail(data)
         transporter.sendMail(
           {            
             //from: "Registro_Horapo_"+Math.floor(Math.random()* (1000 - 1) + 1)+"@horapo.com",
-            from: "noreply@horapo.com",
+            from: "noreply@reusar.cl",
             to: data.email.toLowerCase()  ,
             subject: 'Reusar - Tu propuesta de Intercambio fue Rechazada',
             html: data.message ,
