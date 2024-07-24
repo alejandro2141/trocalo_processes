@@ -1,8 +1,7 @@
     
-    //FRONT_HOST = "https://devel.horapo.com",
-    //FRONT_HOST = "https://test.horapo.com",
-    //FRONT_HOST = "https://www.horapo.com",
-    FRONT_HOST = "http://localhost:5173",
+
+    //FRONT_HOST = "http://localhost:5173",
+    FRONT_HOST = "https://reusar.cl" ,
 
     BKND_TIME = 1000,
     BNKD_USER = 'abc'
