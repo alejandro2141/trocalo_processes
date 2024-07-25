@@ -41,12 +41,21 @@ let response = main();
 //************************************************** 
 async function  main()
 {
-//Step 1, Get all EMails request Recover appointments taken
+
 try { 
 
 html_template = await readHTMLFile(__dirname+"/00013_invitation_send_email.html")
 //  STEP 1 Get appointments require recover appointments taken
 let emails = await getEmailsInvitations()
+console.log("EMAILS LIST:"+JSON.stringify(emails))
+/*
+// STEP 2 Get User Names 
+let users_ids = emails.map( item => ( item.user_id )  )   ;  
+console.log ("USER ID LIST :"+users_ids)
+
+let user_names_list = await getUserNames(users_ids)
+console.log ("USER NAMES LIST :"+ JSON.stringify(user_names_list) )
+*/
 
 if (emails != null && emails.length > 0 )
 {
@@ -57,8 +66,9 @@ if (emails != null && emails.length > 0 )
         
         let register = { 
                 'email' : emails[i].email , 
-                'message' : "<h1></h1>"
-            }
+                'message' : "<h1></h1>", 
+                'subject' : " "+emails[i].friend_name+" Te invita a ser parte de REUSAR.CL  "
+             }
         register.message = await buildHtmlMessage(html_template,emails[i].friend_name)
         email_invitation_list.push(register)       
       } //END FOR CYCLE 
@@ -138,7 +148,7 @@ async function sendmail(data)
             //from: "Registro_Horapo_"+Math.floor(Math.random()* (1000 - 1) + 1)+"@horapo.com",
             from: "noreply@reusar.cl",
             to: data.email.toLowerCase()  ,
-            subject: 'Un amigo te Invita a REUSAR.CL',
+            subject: data.subject ,
             html: data.message ,
             
             ses: {
@@ -153,6 +163,23 @@ async function sendmail(data)
    
 
   }
+
+/*
+async function getUserNames(ids)
+{
+  const { Client } = require('pg')
+  const client = new Client(conn_data)
+  await client.connect()
+ 
+      const sql_users  = "SELECT id, names , last_name1, last_name2 FROM user_created WHERE id IN ("+ids+")  ;   " ;  
+  //  const sql_calendars  = "SELECT * FROM  appointment_cancelled   " ;  
+  
+  //console.log ("QUERY GET CALENDAR = "+sql_calendars);
+  const res = await client.query(sql_users) 
+  client.end() 
+  return res.rows ;
+}
+*/
 
 async function readHTMLFile(path) {
   const html_data = await fs.readFileSync(path,{encoding:'utf8', flag:'r'});
